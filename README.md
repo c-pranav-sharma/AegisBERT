@@ -17,8 +17,6 @@ Standard BERT (2018) is limited by architectural constraints that make it ineffi
 2. **Flash Attention:** Implements hardware-aware attention mechanisms that reduce computational complexity from $O(N^2)$ to $O(N \log N)$, enabling 3x faster inference on standard CPUs.
 3. **Rotary Positional Embeddings (RoPE):** Enhances the model's ability to understand the relative distance between technical tokens (like variable names and function calls) in long code blocks.
 
-
-
 ---
 
 ## 🛠️ Technology Stack
@@ -56,7 +54,7 @@ AegisBERT provides a "Calibrated Confidence" score. The raw output (logits) from
 
 $$P(y_i | X) = \frac{e^{z_i}}{\sum_{j=1}^{13} e^{z_j}}$$
 
-- **Model Confidence:** The resulting percentage (e.g., 99.8%) represents the model's certainty.
+- **Model Confidence:** The resulting percentage (e.g., 99.8%) represents the model's mathematical certainty.
 - **Triage Logic:** If the top confidence is below **65%**, the engine flags the input as "Low Confidence - Manual Review Required" to prevent automated triage errors.
 
 ---
@@ -76,16 +74,14 @@ The engine maps forensic inputs to the following 13 classes, tiered by operation
 
 ---
 
-## 🚀 Setup & Deployment
-### **1. Local Environment**
-AegisBERT is fully containerized. Ensure you have Docker and Docker Compose installed.
-
-### **2. Model Weights (Manual Step)**
-Due to GitHub's file size restrictions, the fine-tuned weights are stored externally:
-- **Download Weights:** `[INSERT_YOUR_DRIVE_LINK_HERE]`
-- **Place in Folder:** Extract weights into the `./model` directory so that `config.json` is at the root of the folder.
-
-### **3. Initialization**
-```bash
-# Build and start the microservices
-docker compose up --build
+## 📂 Project Structure
+```text
+AegisBERT/
+├── api/                # FastAPI Inference Engine (Python)
+├── ui/                 # Streamlit Security Dashboard (Python)
+├── model/              # Architecture Configs (Included) & Weights (Excluded)
+├── Output/             # Directory containing forensic screenshots
+├── docs/               # Full Project Report (PDF)
+├── Output.md           # Detailed forensic validation gallery
+├── docker-compose.yml  # Microservice orchestration config
+└── README.md           # Comprehensive Project Documentation
