@@ -1,0 +1,16 @@
+services:
+  api:
+    build: ./api
+    container_name: threat_intel_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./model:/app/model
+
+  ui:
+    build: ./ui
+    container_name: threat_intel_ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
