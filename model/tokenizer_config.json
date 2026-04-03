@@ -1,0 +1,5 @@
+{
+  "clean_up_tokenization_spaces": true,
+  "model_max_length": 8192,
+  "tokenizer_class": "BertTokenizer"
+}

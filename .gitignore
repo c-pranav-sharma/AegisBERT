@@ -1,18 +1,17 @@
-# --- AI Model & Large Files (DO NOT PUSH) ---
-model/
-*.safetensors
-*.bin
-*.pt
-checkpoint-*/
+# --- Ignore the Heavy Weights ---
+model/*.safetensors
+model/*.bin
+model/*.pt
+model/checkpoint-*/
 
-# --- Python Junk ---
+# --- Ignore Environment & Cache ---
 venv/
 .venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-
-# --- Docker & OS ---
 .DS_Store
+
+# --- Docker Junk ---
 .env
 .dockerignore
